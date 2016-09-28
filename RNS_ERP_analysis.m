@@ -386,12 +386,22 @@ if plot_spectra
     if plot_spectra_combined
         plot_all = true;
         plot_rns = true;
+<<<<<<< HEAD
+        normalize_spectra = false; % Flag to Normalize the spectrograms
+        if plot_all
+            plot_spectrogram_rns_evnt(evnt_ec71, 'EC 71', 800, [], normalize_spectra, false)
+
+            plot_spectrogram_rns_evnt(evnt_rns_1, 'RNS 1', 800, [], normalize_spectra, true)
+
+            plot_spectrogram_rns_evnt(evnt_rns_2, 'RNS 2', 800, [], normalize_spectra, true)
+=======
         if plot_all
             plot_spectrogram_rns_evnt(evnt_ec71, 'EC 71', 800, [], true, false)
 
             plot_spectrogram_rns_evnt(evnt_rns_1, 'RNS 1', 800, [], true, true)
 
             plot_spectrogram_rns_evnt(evnt_rns_2, 'RNS 2', 800, [], true, true)
+>>>>>>> e96c2f3a7b4a9c501e2ae4c343d4b60513720af8
             for i = 1:4
                 subplot(1,4,i);
                 ylim([10^-3 3*10^1])
@@ -401,6 +411,23 @@ if plot_spectra
             z1 = gcf;
         end
         if plot_rns
+<<<<<<< HEAD
+            plot_spectrogram_rns_evnt(evnt_rns_1, 'RNS 1', 800, [], normalize_spectra, false)
+
+            plot_spectrogram_rns_evnt(evnt_rns_2, 'RNS 2', 800, [], normalize_spectra, true)
+            for i = 1:4
+                subplot(1,4,i);
+                if normalize_spectra
+                    ylim([10^-2 1.2*10^1])
+                    ylabel('Normalized Power Density (P^2/Hz)');
+                    title('Normalized Spectral Power Density')
+                else
+                    ylim([10^-1 8*10^1])
+                    ylabel('Power Density (P^2/Hz)');
+                    title('Spectral Power Density')
+                end
+                legend('RNS 1', 'RNS 2')               
+=======
             plot_spectrogram_rns_evnt(evnt_rns_1, 'RNS 1', 800, [], true, false)
 
             plot_spectrogram_rns_evnt(evnt_rns_2, 'RNS 2', 800, [], true, true)
@@ -409,6 +436,7 @@ if plot_spectra
                 ylim([10^-2 1.2*10^1])
                 legend('RNS 1', 'RNS 2')
                 title('Power Normalized Spectral Density')
+>>>>>>> e96c2f3a7b4a9c501e2ae4c343d4b60513720af8
             end
             z2 = gcf;
         end

@@ -26,7 +26,11 @@ function [timit_num, is_clipped] = Preprocess_RNS_gen_ii(appelation, dat_dir, TI
 % % % badfile = '';
 
 %[timit_num, is_clipped] = Preprocess_RNS_gen_ii('fall', '/Users/changlab/Documents/changrepo/matlab/analysis/RNS/RNS TIMIT Exp Data Files 111214/14464527_2014-11-12_21.14.19', [1:10], '');
+<<<<<<< HEAD
+normalize_raw = false;
+=======
 
+>>>>>>> e96c2f3a7b4a9c501e2ae4c343d4b60513720af8
 
 %% Establish Directories:
 tmp = strsplit(dat_dir, '/');
@@ -100,6 +104,10 @@ for i = 1:length(TIMIT_Blocknum)
     %ECoG_data = temp_struct_out.data;
 
     % Z Normalize ECoG:
+<<<<<<< HEAD
+    ecog_raw = ECoG_data;
+=======
+>>>>>>> e96c2f3a7b4a9c501e2ae4c343d4b60513720af8
     ECoG_data = gdivide(gsubtract(ECoG_data, mean(ECoG_data,2)),std(ECoG_data,[],2));
     
     
@@ -107,7 +115,13 @@ for i = 1:length(TIMIT_Blocknum)
     ecog_HG_AA = Hilbert_HG_transmax(ECoG_data);
     
     % RAW Data
+<<<<<<< HEAD
+    if normalize_raw
+        ecog_raw = ECoG_data;
+    end
+=======
     ecog_raw = ECoG_data;
+>>>>>>> e96c2f3a7b4a9c501e2ae4c343d4b60513720af8
     
     % High Gamma
     ecog_std = Hilbert_HG_std_ii(ECoG_data);
